@@ -1,0 +1,1 @@
+{"version":2,"name":"zeit-now-express","builds":[{"src":"**/*.js","use":"@now/node"}]}
