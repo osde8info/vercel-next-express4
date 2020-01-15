@@ -1,17 +1,24 @@
+const GLITCH=process.env.GLITCH
+const ZEIT=process.env.ZEIT
+
 const express = require('express')
-const helmet = require('helmet')
+const pug = require('pug')
 
 const app = express()
 
-// add some security-related headers to the response
-app.use(helmet())
-
-app.get('*', (req, res) => {
+app.get('/', (req, res) => {
     res.set('Content-Type', 'text/html')
     res.status(200).send(`
-        <h1>Hello from ZEIT NOW path '/' on Now 2.0!</h1>
-        <h2>Go to <a href="/about">/about</a></h2>
+        <h1>zeit node express</h1>
+        <h2> a demo of node express pug for GLITCH and ZEIT</h2>
+        <h3>Go to <a href="/about">/about</a></h3>
     `)
 })
 
-module.exports = app
+if (GLITCH) {
+  app.listen(process.env.PORT)
+}
+
+// if (ZEIT)
+  module.exports = app
+//
